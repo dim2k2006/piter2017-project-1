@@ -30,59 +30,51 @@
 }
 
 // inputDefault
-//@mixin inputDefault {
-//    position: relative;
-//    display: block;
-//    width: 100%;
-//    height: 40px;
-//    padding-top: 0;
-//    padding-bottom: 0;
-//    padding-left: 15px;
-//    padding-right: 15px;
-//    font-family: $font-family-regular;
-//    font-size: $font-size-predefault;
-//    line-height: 40px;
-//    appearance: none;
-//    border: none;
-//    outline: none;
-//    color: rgba($color-cod-gray, .8);
-//    border-radius: 0;
-//    background-color: $color-white;
-//    border: 1px solid $color-mystic;
-//    @include transitionDefault;
-//
-//    &:focus {
-//        border-color: $color-danube;
-//    }
-//}
+@mixin inputDefault {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 40px;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-family: $font-family-default;
+    font-size: $font-size-predefault;
+    line-height: 40px;
+    appearance: none;
+    border: none;
+    outline: none;
+    color: rgba($color-black, .8);
+    border-radius: 0;
+    background-color: $color-white;
+    border: 1px solid $color-iron;
+
+    &:disabled {
+        opacity: .5;
+        cursor: not-allowed;
+    }
+}
 
 // textareaDefault
-//@mixin textareaDefault {
-//    position: relative;
-//    display: block;
-//    width: 100%;
-//    height: 120px;
-//    padding-top: 15px;
-//    padding-bottom: 15px;
-//    padding-left: 15px;
-//    padding-right: 15px;
-//    font-family: $font-family-regular;
-//    font-size: $font-size-predefault;
-//    line-height: $line-height-little;
-//    appearance: none;
-//    border: none;
-//    outline: none;
-//    resize: none;
-//    color: rgba($color-cod-gray, .8);;
-//    border-radius: 0;
-//    background-color: $color-white;
-//    border: 1px solid $color-mystic;
-//    @include transitionDefault;
-//
-//    &:focus {
-//        border-color: $color-danube;
-//    }
-//}
+@mixin textareaDefault {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 120px;
+    padding: 15px;
+    font-family: $font-family-default;
+    font-size: $font-size-predefault;
+    line-height: $line-height-little;
+    appearance: none;
+    border: none;
+    outline: none;
+    resize: none;
+    color: rgba($color-black, .8);
+    border-radius: 0;
+    background-color: $color-white;
+    border: 1px solid $color-iron;
+}
 
 // Vertical paddings
 @mixin blockPaddingVertical($top: "", $bottom: "") {
