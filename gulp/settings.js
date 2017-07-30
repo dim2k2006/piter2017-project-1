@@ -11,7 +11,7 @@ export default {
 
     dist: {
         styles: './static/css',
-        scripts: './static/js',
+        scripts: './static',
         images: './static/images',
         fonts: './static/fonts'
     },

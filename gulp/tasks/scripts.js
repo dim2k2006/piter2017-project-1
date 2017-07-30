@@ -14,7 +14,7 @@ gulp.task('scripts', () => {
     ])
         .pipe(plumber({errorHandler: errorHandler}))
         .pipe(sourcemaps.init())
-        .pipe(concat('main.min.js'))
+        .pipe(concat('index.js'))
         .pipe(babel({
             presets: ['es2015']
         }))
