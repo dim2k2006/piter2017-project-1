@@ -1,0 +1,33 @@
+$form: '.form';
+
+#{$form} {
+    @include blockDefault;
+    padding: 100px 0;
+    @include blockPaddingHorizontal;
+
+    &__form {
+        max-width: 882px;
+        margin: 0 auto;
+        background-color: $color-white;
+        border-radius: 5px;
+        box-shadow: 0 0 2px 0 rgba($color-black, .1);
+    }
+
+    &__header,
+    &__content,
+    &__footer {
+        padding: 0 80px;
+    }
+
+    &__header {
+        padding-top: 34px;
+        padding-bottom: 34px;
+        border-bottom: 2px solid $color-solitude;
+    }
+
+    &__title {
+        font-size: $font-size-largeplus;
+        line-height: $line-height-prelittle;
+        color: $color-rolling-stone;
+    }
+}
