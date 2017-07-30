@@ -9,8 +9,7 @@ import settings     from '../settings';
 
 gulp.task('scripts', () => {
     return gulp.src([
-        settings.src.scripts + '/*.js',
-        settings.src.blocks + '/**/*.js',
+        settings.src.scripts + '/**/*.js'
     ])
         .pipe(plumber({errorHandler: errorHandler}))
         .pipe(sourcemaps.init())
