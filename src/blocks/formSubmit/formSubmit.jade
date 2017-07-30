@@ -1,0 +1,11 @@
+mixin formSubmit(data)
+    - var submitData = data ? data : {}
+
+    - submitData.title = submitData.title ? submitData.title : 'Отправить';
+    - submitData.id = submitData.id ? submitData.id : 'submit';
+    - submitData.name = submitData.name ? submitData.name : 'submit';
+
+    +b('div').formSubmit
+        +e('div').wrapper
+            +e('div').content
+                button.formSubmit__submit(type="submit", name= submitData.name, id= submitData.id)!= submitData.title

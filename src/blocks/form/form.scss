@@ -50,6 +50,7 @@ $form: '.form';
 
         @include f-last(1) {
             margin-bottom: 0;
+            padding-top: 40px;
         }
     }
 }

@@ -1,0 +1,20 @@
+$formSubmit: '.formSubmit';
+
+#{$formSubmit} {
+    @include blockDefault;
+    text-align: center;
+
+    &__submit {
+        position: relative;
+        display: inline-block;
+        vertical-align: top;
+        padding: 25px 20px;
+        font-size: $font-size-semilarge;
+        line-height: $line-height-prelittle;
+        color: $color-white;
+        appearance: none;
+        outline: none;
+        background-color: $color-shamrock;
+        border-radius: 5px;
+    }
+}
