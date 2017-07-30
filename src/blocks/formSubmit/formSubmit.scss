@@ -16,5 +16,16 @@ $formSubmit: '.formSubmit';
         outline: none;
         background-color: $color-shamrock;
         border-radius: 5px;
+        @include transition(opacity);
+    }
+
+    &#{$formSubmit}_state_disabled {
+        pointer-events: none;
+
+        #{$formSubmit} {
+            &__submit {
+                opacity: .4;
+            }
+        }
     }
 }
