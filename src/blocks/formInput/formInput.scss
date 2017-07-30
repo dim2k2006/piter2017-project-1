@@ -1,0 +1,9 @@
+$formInput: '.formInput';
+
+#{$formInput} {
+    @include blockDefault;
+
+    &__label {
+        @include formLabel;
+    }
+}

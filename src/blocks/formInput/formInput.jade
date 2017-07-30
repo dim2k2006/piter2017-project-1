@@ -1,0 +1,28 @@
+mixin formInput(data)
+    - var inputData = data ? data : {};
+
+    - inputData.type = inputData.type ? inputData.type : 'text';
+    - inputData.label = inputData.label ? inputData.label : false;
+    - inputData.name = inputData.name ? inputData.name : 'input';
+    - inputData.id = inputData.id ? inputData.id : 'input';
+    - inputData.value = inputData.value ? inputData.value : '';
+    - inputData.placeholder = inputData.placeholder ? inputData.placeholder : '';
+    - inputData.error = inputData.error ? inputData.error : false;
+
+    +b('div').formInput(
+        class="formItem",
+        class= inputData.error ? 'formInput_state_error' : ''
+    )
+        +e('div').wrapper
+            if inputData.label
+                +e('div').header
+                    +e('label').label(for= inputData.id)!= inputData.label
+
+            +e('div').content
+                +e('input').input(
+                    type= inputData.type,
+                    name= inputData.name,
+                    id= inputData.id,
+                    value= inputData.value,
+                    placeholder= inputData.placeholder
+                )
