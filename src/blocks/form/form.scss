@@ -30,4 +30,26 @@ $form: '.form';
         line-height: $line-height-prelittle;
         color: $color-rolling-stone;
     }
+
+    &__content {
+        padding-top: 45px;
+        padding-bottom: 45px;
+    }
+
+    &__list {
+        @include clearfix;
+    }
+
+    &__list,
+    &__item {
+        @include list-reset;
+    }
+
+    &__item {
+        margin-bottom: 30px;
+
+        @include f-last(1) {
+            margin-bottom: 0;
+        }
+    }
 }

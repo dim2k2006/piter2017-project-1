@@ -1,20 +1,34 @@
+include ../formInput/formInput
+
 mixin form
     +b('section').form
         +e('div').wrapper
-            +e('form').form(action="", methods="")
+            +e('form').form(action="", methods="", id="myForm")
                 +e('div').header
                     +e('div').title!= "Регистрация"
 
                 +e('div').content
                     +e('ul').list
                         +e('li').item
-                            // formInput
+                            +formInput({
+                                name: 'fio',
+                                id: 'fio',
+                                label: 'ФИО'
+                            })
 
                         +e('li').item
-                            // formInput
+                            +formInput({
+                                name: 'email',
+                                id: 'email',
+                                label: 'Email'
+                            })
 
                         +e('li').item
-                            // formInput
+                            +formInput({
+                                name: 'phone',
+                                id: 'phone',
+                                label: 'Телефон'
+                            })
 
                         +e('li').item
                             // formSubmit
