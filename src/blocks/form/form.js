@@ -1,4 +1,5 @@
 const MyForm = {
+    form: document.querySelector('#myForm'),
     submitBtn: document.querySelector('#submitButton'),
     validationRules: {
         fio: {
@@ -14,6 +15,7 @@ const MyForm = {
             digitSum: 30
         }
     },
+    fieldsFilter: ['fio', 'email', 'phone'],
 
     /**
      * Add events listeners
@@ -31,9 +33,20 @@ const MyForm = {
 
     /**
      * Retrieve data from inputs
+     * @returns {Object} data
      */
     getData: function() {
+        const inputs = this.form.querySelectorAll('input');
+        const data = {};
 
+        inputs.forEach((input, index) => {
+            const name = input.name || `input-${index}`;
+            const value = input.value || '';
+
+            data[name] = value;
+        });
+
+        return data;
     },
 
     /**
@@ -41,7 +54,22 @@ const MyForm = {
      * @param {Object} data
      */
     setData: function(data) {
+        for (let inputName in data) {
 
+            if (this.fieldsFilter.indexOf(inputName) !== -1) {
+
+                const input = this.form.querySelector(`[name=${inputName}]`);
+
+                if (input) {
+
+                    const value = data[inputName];
+
+                    input.value = value;
+
+                }
+
+            }
+        }
     },
 
     /**
@@ -51,7 +79,7 @@ const MyForm = {
     submit: function(event) {
         event.preventDefault();
 
-        console.log(this);
+        // console.log(this);
     },
 
     /**
