@@ -10,7 +10,6 @@ mixin formInput(data)
     - inputData.error = inputData.error ? inputData.error : false;
 
     +b('div').formInput(
-        class="formItem",
         class= inputData.error ? 'formInput_state_error' : ''
     )
         +e('div').wrapper

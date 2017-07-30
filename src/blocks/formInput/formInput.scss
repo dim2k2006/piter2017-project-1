@@ -6,4 +6,10 @@ $formInput: '.formInput';
     &__label {
         @include formLabel;
     }
+
+    &__input {
+        &.error {
+            border-color: $color-carnation;
+        }
+    }
 }

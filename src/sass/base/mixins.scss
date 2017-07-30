@@ -47,7 +47,9 @@
     outline: none;
     color: rgba($color-black, .8);
     background-color: $color-solitude;
+    border: 1px solid $color-solitude;
     border-radius: 5px;
+    @include transition(border-color);
 }
 
 // textareaDefault
