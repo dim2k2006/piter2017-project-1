@@ -16,7 +16,15 @@ $formSubmit: '.formSubmit';
         outline: none;
         background-color: $color-shamrock;
         border-radius: 5px;
-        @include transition(opacity);
+        @include transition(opacity, box-shadow);
+
+        &:focus {
+            box-shadow: 0 0 15px 0 rgba($color-shamrock, .8);
+        }
+
+        &:active {
+            box-shadow: none;
+        }
     }
 
     &#{$formSubmit}_state_disabled {
