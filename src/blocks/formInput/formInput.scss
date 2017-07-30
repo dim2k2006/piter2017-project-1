@@ -8,6 +8,10 @@ $formInput: '.formInput';
     }
 
     &__input {
+        &:focus {
+            border-color: $color-shamrock;
+        }
+
         &.error {
             border-color: $color-carnation;
         }
