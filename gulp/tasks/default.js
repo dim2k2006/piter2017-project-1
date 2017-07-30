@@ -8,6 +8,7 @@ gulp.task('default', () => (
         'images',
         'styles-dependencies',
         'styles',
+        'eslint',
         'scripts-dependencies',
         'scripts',
         'markup',

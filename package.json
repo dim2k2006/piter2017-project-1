@@ -30,6 +30,7 @@
         "gulp-combine-mq": "^0.4.0",
         "gulp-concat": "^2.6.0",
         "gulp-concat-css": "^2.2.0",
+        "gulp-eslint": "^4.0.0",
         "gulp-filter": "^3.0.1",
         "gulp-html-prettify": "0.0.1",
         "gulp-if": "^1.2.5",

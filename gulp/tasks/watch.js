@@ -12,7 +12,7 @@ gulp.task('watch', () => {
     });
 
     watch([`${settings.baseSrc}/{blocks}/**/*.js`], function(event, cb) {
-        gulp.start('scripts');
+        gulp.start('eslint', 'scripts');
     });
 
     watch(`${settings.baseSrc}/{pages,blocks,jade}/**/*.jade`, () => {

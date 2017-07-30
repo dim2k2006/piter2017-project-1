@@ -1,0 +1,54 @@
+{
+    "extends": "eslint:recommended",
+    "parserOptions": {
+        "ecmaVersion": 6
+    },
+    "env": {
+        "browser": true
+    },
+    "rules": {
+        "curly": "error",
+        "default-case": "error",
+        "eqeqeq": "error",
+        "no-alert": "error",
+        "no-empty-function": "error",
+        "no-implicit-globals": "error",
+        "no-multi-spaces": "error",
+        "no-multi-str": "error",
+        "no-param-reassign": "error",
+        "vars-on-top": "error",
+        "wrap-iife": ["error", "inside"],
+        "no-use-before-define": "error",
+        "array-bracket-spacing": ["error", "never"],
+        "block-spacing": ["error", "never"],
+        "brace-style": "error",
+        "comma-dangle": ["error", "never"],
+        "comma-spacing": ["error", { "before": false, "after": true }],
+        "computed-property-spacing": ["error", "never"],
+        "func-call-spacing": ["error", "never"],
+        "indent": ["error", 4],
+        "key-spacing": ["error", { "afterColon": true }],
+        "keyword-spacing": ["error", { "before": true }],
+        "new-cap": ["error", { "capIsNew": true }],
+        "newline-after-var": ["error", "always"],
+        "no-multiple-empty-lines": ["error", { "max": 1}],
+        "no-trailing-spaces": "error",
+        "object-curly-spacing": ["error", "never"],
+        "object-property-newline": "error",
+        "one-var": ["error", "never"],
+        "require-jsdoc": ["error", {
+            "require": {
+                "FunctionDeclaration": true,
+                "MethodDefinition": true,
+                "ClassDeclaration": true,
+                "ArrowFunctionExpression": true
+            }
+        }],
+        "space-before-blocks": "error",
+        "space-before-function-paren": ["error", "never"],
+        "space-in-parens": ["error", "never"],
+        "unicode-bom": "error",
+        "no-var": "error",
+        "semi": 2
+    }
+}

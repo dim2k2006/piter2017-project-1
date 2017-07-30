@@ -6,16 +6,13 @@ const MyForm = {
     },
 
     validate: function() {
-
+        //
     },
-
-
-
 
     submit: function(event) {
         event.preventDefault();
 
-        console.log('submit');
+        // console.log('submit');
     },
 
     init: function() {
