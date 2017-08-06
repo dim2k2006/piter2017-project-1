@@ -50,6 +50,10 @@
     border: 1px solid $color-solitude;
     border-radius: 5px;
     @include transition(border-color);
+
+    &.error {
+        border-color: red;
+    }
 }
 
 // textareaDefault

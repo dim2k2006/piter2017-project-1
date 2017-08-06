@@ -39,9 +39,7 @@ const MyForm = {
 
         }
 
-        const result = this.formValidation.validate();
-
-        console.log(result);
+        return this.formValidation.validate();
     },
 
     /**
@@ -92,15 +90,40 @@ const MyForm = {
     submit: function(event) {
         event.preventDefault();
 
-        this.validate();
-        // console.log(this);
+        const errorInputs = this.form.querySelectorAll('.error');
+
+        if (errorInputs) {
+
+            errorInputs.forEach(input => input.classList.remove('error'));
+
+        }
+
+        const form = this.validate();
+
+        if (form.isValid) {
+
+            console.log('submit');
+            // this.form.submit();
+
+        } else {
+
+            form.errorFields.forEach(fieldName => {
+                const field = this.form.querySelector(`[name=${fieldName}]`);
+
+                if (field) {
+
+                    field.classList.add('error');
+
+                }
+            });
+
+        }
     },
 
     /**
      * Init form object
      */
     init: function() {
-        // this.validate();
         this.setupListeners();
     }
 };

@@ -18,7 +18,7 @@ $formSubmit: '.formSubmit';
         border-radius: 5px;
         @include transition(opacity, box-shadow);
 
-        &:focus {
+        &:hover {
             box-shadow: 0 0 15px 0 rgba($color-shamrock, .8);
         }
 
