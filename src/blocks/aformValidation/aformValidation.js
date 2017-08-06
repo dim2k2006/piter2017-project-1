@@ -13,8 +13,10 @@
         self._getOptions = () => {
             self.options = self._checkOptions(options);
             self.methods = {
-                fullName: self._fullName
+                fullName: self._fullName,
+                email: self._email
             };
+            self.domains = ['ya.ru', 'yandex.ru', 'yandex.ua', 'yandex.by', 'yandex.kz', 'yandex.com'];
         };
 
         /**
@@ -26,7 +28,9 @@
         self._checkOptions = (options) => {
             if (options.form instanceof Element === false) {
 
+                /*eslint-disable no-console*/
                 console.log('Form must be html element!');
+                /*eslint-enable no-console*/
 
                 return false;
 
@@ -45,6 +49,26 @@
          */
         self._fullName = (value) => {
             return /^([\S]+)\s([\S]+)\s([\S]+)/.test(value);
+        };
+
+        /**
+         * Check email
+         * @param {String} value
+         * @returns {Boolean}
+         * @private
+         */
+        self._email = (value) => {
+            const domains = self.domains;
+            const idx = value.lastIndexOf('@');
+            const domain = idx > -1 ? value.slice(idx + 1) : '';
+
+            if (domains.indexOf(domain) === -1) {
+
+                return false;
+
+            }
+
+            return /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(value);
         };
 
         /**
@@ -68,11 +92,13 @@
                     const fieldRules = rules[fieldName];
 
                     for (const rule in fieldRules) {
-                        if (fieldRules.hasOwnProperty(rule)) {
+                        if (fieldRules.hasOwnProperty(rule) && fieldRules[rule]) {
 
-                            if (methods[rule]) {
+                            const prop = fieldRules[rule];
 
-                                const result = methods[rule](value);
+                            if (methods[rule] && prop) {
+
+                                const result = methods[rule](value, prop);
 
                                 if (!result) {
 

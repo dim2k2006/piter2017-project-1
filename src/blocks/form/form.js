@@ -7,8 +7,7 @@ const MyForm = {
             fullName: true
         },
         email: {
-            email: true,
-            domain: ['ya.ru', 'yandex.ru', 'yandex.ua', 'yandex.by', 'yandex.kz', 'yandex.com']
+            email: true
         },
         phone: {
             startWith: '+7',
