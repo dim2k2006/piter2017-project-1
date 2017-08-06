@@ -2,6 +2,7 @@
     /**
      * Creates a new FormValidation class.
      * @param {Object} options
+     * @returns {Object}
      */
     const aFormValidation = function(options) {
         const self = this;
