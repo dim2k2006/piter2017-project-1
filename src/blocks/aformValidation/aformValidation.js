@@ -94,11 +94,9 @@
                     for (const rule in fieldRules) {
                         if (fieldRules.hasOwnProperty(rule) && fieldRules[rule]) {
 
-                            const prop = fieldRules[rule];
+                            if (methods[rule]) {
 
-                            if (methods[rule] && prop) {
-
-                                const result = methods[rule](value, prop);
+                                const result = methods[rule](value);
 
                                 if (!result) {
 
