@@ -14,9 +14,11 @@
             self.options = self._checkOptions(options);
             self.methods = {
                 fullName: self._fullName,
-                email: self._email
+                email: self._email,
+                phone: self._phone
             };
             self.domains = ['ya.ru', 'yandex.ru', 'yandex.ua', 'yandex.by', 'yandex.kz', 'yandex.com'];
+            self.phoneSumLimit = 30;
         };
 
         /**
@@ -69,6 +71,26 @@
             }
 
             return /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(value);
+        };
+
+        /**
+         * Check phone
+         * @param {String} value
+         * @returns {Boolean}
+         * @private
+         */
+        self._phone = (value) => {
+            const sumLimit = self.phoneSumLimit;
+            const digits = value.replace(/[^/\d]/g, '');
+            const sum = digits.split('').reduce((sum, number) => sum + parseInt(number), 0);
+
+            if (sum > sumLimit) {
+
+                return false;
+
+            }
+
+            return /^\+7\(([0-9]{3})\)([0-9]{3})[-]([0-9]{2})[-]([0-9]{2})$/.test(value);
         };
 
         /**

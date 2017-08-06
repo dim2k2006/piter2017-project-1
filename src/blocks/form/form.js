@@ -10,9 +10,7 @@ const MyForm = {
             email: true
         },
         phone: {
-            startWith: '+7',
-            pattern: '+7(999)999-99-99',
-            digitSum: 30
+            phone: true
         }
     },
     fieldsFilter: ['fio', 'email', 'phone'],
