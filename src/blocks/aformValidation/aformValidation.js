@@ -17,8 +17,6 @@
                 email: self._email,
                 phone: self._phone
             };
-            self.domains = ['ya.ru', 'yandex.ru', 'yandex.ua', 'yandex.by', 'yandex.kz', 'yandex.com'];
-            self.phoneSumLimit = 30;
         };
 
         /**
@@ -39,6 +37,8 @@
             }
 
             options.rules = options.rules ? options.rules : {};
+            options.settings.domains = options.settings.domains ? options.settings.domains : [];
+            options.settings.phoneSumLimit = options.settings.phoneSumLimit ? options.settings.phoneSumLimit : 0;
 
             return options;
         };
@@ -60,7 +60,7 @@
          * @private
          */
         self._email = (value) => {
-            const domains = self.domains;
+            const domains = options.settings.domains;
             const idx = value.lastIndexOf('@');
             const domain = idx > -1 ? value.slice(idx + 1) : '';
 
@@ -80,7 +80,7 @@
          * @private
          */
         self._phone = (value) => {
-            const sumLimit = self.phoneSumLimit;
+            const sumLimit = options.settings.phoneSumLimit;
             const digits = value.replace(/[^/\d]/g, '');
             const sum = digits.split('').reduce((sum, number) => sum + parseInt(number), 0);
 

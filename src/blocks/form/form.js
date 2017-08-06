@@ -30,7 +30,11 @@ const MyForm = {
 
             this.formValidation = new FormValidation({
                 form: this.form,
-                rules: this.rules
+                rules: this.rules,
+                settings: {
+                    domains: ['ya.ru', 'yandex.ru', 'yandex.ua', 'yandex.by', 'yandex.kz', 'yandex.com'],
+                    phoneSumLimit: 30
+                }
             });
 
         }
