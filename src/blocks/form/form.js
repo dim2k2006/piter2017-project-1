@@ -13,6 +13,10 @@ const MyForm = {
             phone: true
         }
     },
+    settings: {
+        domains: ['ya.ru', 'yandex.ru', 'yandex.ua', 'yandex.by', 'yandex.kz', 'yandex.com'],
+        phoneSumLimit: 30
+    },
     fieldsFilter: ['fio', 'email', 'phone'],
 
     /**
@@ -26,19 +30,6 @@ const MyForm = {
      * Validate form
      */
     validate: function() {
-        if (!this.formValidation) {
-
-            this.formValidation = new FormValidation({
-                form: this.form,
-                rules: this.rules,
-                settings: {
-                    domains: ['ya.ru', 'yandex.ru', 'yandex.ua', 'yandex.by', 'yandex.kz', 'yandex.com'],
-                    phoneSumLimit: 30
-                }
-            });
-
-        }
-
         return this.formValidation.validate();
     },
 
@@ -121,9 +112,21 @@ const MyForm = {
     },
 
     /**
+     * Init validation for form
+     */
+    initValidation: function() {
+        this.formValidation = new FormValidation({
+            form: this.form,
+            rules: this.rules,
+            settings: this.settings
+        });
+    },
+
+    /**
      * Init form object
      */
     init: function() {
+        this.initValidation();
         this.setupListeners();
     }
 };
