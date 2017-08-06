@@ -1,9 +1,10 @@
 const MyForm = {
     form: document.querySelector('#myForm'),
     submitBtn: document.querySelector('#submitButton'),
-    validationRules: {
+    formValidation: '',
+    rules: {
         fio: {
-            wordsLength: 3
+            fullName: true
         },
         email: {
             email: true,
@@ -28,7 +29,18 @@ const MyForm = {
      * Validate form
      */
     validate: function() {
-        //
+        if (!this.formValidation) {
+
+            this.formValidation = new FormValidation({
+                form: this.form,
+                rules: this.rules
+            });
+
+        }
+
+        const result = this.formValidation.validate();
+
+        console.log(result);
     },
 
     /**
@@ -79,6 +91,7 @@ const MyForm = {
     submit: function(event) {
         event.preventDefault();
 
+        this.validate();
         // console.log(this);
     },
 
@@ -86,6 +99,7 @@ const MyForm = {
      * Init form object
      */
     init: function() {
+        // this.validate();
         this.setupListeners();
     }
 };
