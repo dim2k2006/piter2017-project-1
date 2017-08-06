@@ -2,6 +2,11 @@ $formResult: '.formResult';
 
 #{$formResult} {
     &__content {
-        border-top: 2px solid $color-solitude;
+        position: relative;
+        padding: 12px 10px;
+        font-size: $font-size-default;
+        line-height: $line-height-small;
+        color: $color-black;
+        border-top: 1px solid $color-solitude;
     }
 }

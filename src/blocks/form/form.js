@@ -170,8 +170,13 @@ const MyForm = {
         this.resultContainer.textContent = data.text;
     },
 
-    error: function() {
-        // error
+    /**
+     * Handle response
+     * @param data
+     */
+    error: function(data) {
+        this.resultContainer.classList.add('error');
+        this.resultContainer.textContent = data.reason;
     },
 
     progress: function() {

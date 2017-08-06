@@ -5,7 +5,7 @@ include ../formResult/formResult
 mixin form
     +b('section').form
         +e('div').wrapper
-            +e('form').form(action="/server/success.json", method="GET", id="myForm")
+            +e('form').form(action="/server/error.json", method="GET", id="myForm")
                 +e('div').header
                     +e('div').title!= "Регистрация"
 
