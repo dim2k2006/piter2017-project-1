@@ -6,7 +6,7 @@ $form: '.form';
     @include blockPaddingHorizontal;
 
     &__form {
-        max-width: 882px;
+        max-width: 440px;
         margin: 0 auto;
         background-color: $color-white;
         border-radius: 5px;
@@ -16,24 +16,24 @@ $form: '.form';
     &__header,
     &__content,
     &__footer {
-        padding: 0 80px;
+        padding: 0 40px;
     }
 
     &__header {
-        padding-top: 34px;
-        padding-bottom: 34px;
-        border-bottom: 2px solid $color-solitude;
+        padding-top: 17px;
+        padding-bottom: 17px;
+        border-bottom: 1px solid $color-solitude;
     }
 
     &__title {
-        font-size: $font-size-largeplus;
+        font-size: $font-size-mediumplus;
         line-height: $line-height-prelittle;
         color: $color-rolling-stone;
     }
 
     &__content {
-        padding-top: 45px;
-        padding-bottom: 45px;
+        padding-top: 22px;
+        padding-bottom: 22px;
     }
 
     &__list {
@@ -46,11 +46,11 @@ $form: '.form';
     }
 
     &__item {
-        margin-bottom: 30px;
+        margin-bottom: 15px;
 
         @include f-last(1) {
             margin-bottom: 0;
-            padding-top: 40px;
+            padding-top: 20px;
         }
     }
 }

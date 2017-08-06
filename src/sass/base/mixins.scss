@@ -34,14 +34,14 @@
     position: relative;
     display: block;
     width: 100%;
-    height: 80px;
+    height: 40px;
     padding-top: 0;
     padding-bottom: 0;
     padding-left: 15px;
     padding-right: 15px;
     font-family: $font-family-default;
-    font-size: $font-size-semilarge;
-    line-height: 80px;
+    font-size: $font-size-default;
+    line-height: 40px;
     appearance: none;
     border: none;
     outline: none;
@@ -311,8 +311,8 @@
 // Form label
 @mixin formLabel {
     display: block;
-    margin-bottom: 12px;
-    font-size: $font-size-mediumplus;
+    margin-bottom: 6px;
+    font-size: $font-size-extrasmall;
     line-height: $line-height-prelittle;
     color: $color-silver-sand;
     text-transform: uppercase;

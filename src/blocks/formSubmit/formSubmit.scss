@@ -8,8 +8,8 @@ $formSubmit: '.formSubmit';
         position: relative;
         display: inline-block;
         vertical-align: top;
-        padding: 25px 20px;
-        font-size: $font-size-semilarge;
+        padding: 12px 10px;
+        font-size: $font-size-default;
         line-height: $line-height-prelittle;
         color: $color-white;
         appearance: none;
@@ -19,7 +19,7 @@ $formSubmit: '.formSubmit';
         @include transition(opacity, box-shadow);
 
         &:hover {
-            box-shadow: 0 0 15px 0 rgba($color-shamrock, .8);
+            box-shadow: 0 0 10px 0 rgba($color-shamrock, .8);
         }
 
         &:active {
