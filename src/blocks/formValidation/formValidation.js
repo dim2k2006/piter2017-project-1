@@ -4,7 +4,7 @@
      * @param {Object} options
      * @returns {Object}
      */
-    const aFormValidation = function(options) {
+    const FormValidation = function(options) {
         const self = this;
 
         /**
@@ -167,7 +167,7 @@
      */
     if (!window.FormValidation) {
 
-        window.FormValidation = aFormValidation;
+        window.FormValidation = FormValidation;
 
     } else {
 
