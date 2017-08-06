@@ -1,6 +1,7 @@
 const MyForm = {
     form: document.querySelector('#myForm'),
     submitBtn: document.querySelector('#submitButton'),
+    resultContainer: document.querySelector('#resultContainer'),
     formValidation: '',
     rules: {
         fio: {
@@ -93,8 +94,9 @@ const MyForm = {
 
         if (form.isValid) {
 
-            console.log('submit');
-            // this.form.submit();
+            const options = this.getFormSettings();
+
+            this.request(options);
 
         } else {
 
@@ -109,6 +111,84 @@ const MyForm = {
             });
 
         }
+    },
+
+    /**
+     * Send request to server
+     * @param {Object} options
+     */
+    request: function(options) {
+        if (!options.url) {
+
+            /*eslint-disable no-console*/
+            console.log('Form action attribute is not specified!');
+            /*eslint-enable no-console*/
+
+            return false;
+
+        }
+
+        const req = fetch(
+            options.url,
+            options.settings
+        );
+
+        req
+            .then(blob => blob.json())
+            .then(data => {
+                const method = data.status ? data.status : '';
+
+                if (!method) {
+
+                    /*eslint-disable no-console*/
+                    console.log('Can not identify response status!');
+                    /*eslint-enable no-console*/
+
+                }
+
+                if (this[method]) {
+
+                    this[method](data);
+
+                }
+            })
+            .catch(error => {
+                /*eslint-disable no-console*/
+                console.log(error);
+                /*eslint-enable no-console*/
+            });
+    },
+
+    /**
+     * Handle response
+     * @param data
+     */
+    success: function(data) {
+        data.text = 'Success';
+
+        this.resultContainer.classList.add('success');
+        this.resultContainer.textContent = data.text;
+    },
+
+    error: function() {
+        // error
+    },
+
+    progress: function() {
+        // progress
+    },
+
+    /**
+     * Get form settings
+     * @returns {Object}
+     */
+    getFormSettings: function() {
+        return {
+            url: this.form.action,
+            settings: {
+                method: this.form.method ? this.form.method : 'get'
+            }
+        };
     },
 
     /**

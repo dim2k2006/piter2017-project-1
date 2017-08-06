@@ -1,5 +1,7 @@
 $formResult: '.formResult';
 
 #{$formResult} {
-
+    &__content {
+        border-top: 2px solid $color-solitude;
+    }
 }
