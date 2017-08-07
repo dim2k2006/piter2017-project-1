@@ -24,7 +24,11 @@ const MyForm = {
      * Add events listeners
      */
     setupListeners: function() {
-        this.submitBtn.addEventListener('click', this.submit.bind(this));
+        this.submitBtn.addEventListener('click', (event) => {
+            event.preventDefault();
+
+            this.submit();
+        });
     },
 
     /**
@@ -77,11 +81,8 @@ const MyForm = {
 
     /**
      * Submit form
-     * @param {Object} event
      */
-    submit: function(event) {
-        event.preventDefault();
-
+    submit: function() {
         const errorInputs = this.form.querySelectorAll('.error');
 
         if (errorInputs) {
