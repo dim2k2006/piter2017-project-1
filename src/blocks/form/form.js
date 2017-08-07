@@ -98,6 +98,8 @@ const MyForm = {
 
             this.resetResult();
 
+            this.toggleLoading();
+
             this.request(options);
 
         } else {
@@ -171,6 +173,7 @@ const MyForm = {
         this.resetResult();
         this.resultContainer.classList.add('success');
         this.resultContainer.textContent = data.text;
+        this.toggleLoading();
     },
 
     /**
@@ -181,6 +184,7 @@ const MyForm = {
         this.resetResult();
         this.resultContainer.classList.add('error');
         this.resultContainer.textContent = data.reason;
+        this.toggleLoading();
     },
 
     /**
@@ -197,6 +201,13 @@ const MyForm = {
 
             this.request(options);
         }, data.timeout);
+    },
+
+    /**
+     * Toggle loading state for form element
+     */
+    toggleLoading: function() {
+        this.form.classList.toggle('loading');
     },
 
     /**
