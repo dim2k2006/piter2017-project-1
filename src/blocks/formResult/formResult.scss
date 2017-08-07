@@ -3,10 +3,54 @@ $formResult: '.formResult';
 #{$formResult} {
     &__content {
         position: relative;
+        min-height: 47px;
         padding: 12px 10px;
         font-size: $font-size-default;
         line-height: $line-height-small;
         color: $color-black;
         border-top: 1px solid $color-solitude;
+
+        &:after {
+            content: '';
+            position: absolute;
+            display: none;
+            width: 4px;
+            height: 60%;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            background-color: currentColor;
+        }
+
+        &.success {
+            color: $color-shamrock;
+
+            &:after {
+                display: block;
+            }
+        }
+
+        &.error {
+            color: $color-carnation;
+
+            &:after {
+                display: block;
+            }
+        }
+
+        &.progress {
+            color: $color-curious-blue;
+
+            &:after {
+                display: block;
+            }
+
+            &:before {
+                content: attr(data-loading) '...';
+                position: relative;
+                display: block;
+                animation: loading 2s linear infinite;
+            }
+        }
     }
 }

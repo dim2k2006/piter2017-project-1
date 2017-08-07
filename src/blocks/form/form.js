@@ -96,6 +96,8 @@ const MyForm = {
 
             const options = this.getFormSettings();
 
+            this.resetResult();
+
             this.request(options);
 
         } else {
@@ -160,7 +162,7 @@ const MyForm = {
     },
 
     /**
-     * Handle response
+     * Handle success response
      * @param data
      */
     success: function(data) {
@@ -171,7 +173,7 @@ const MyForm = {
     },
 
     /**
-     * Handle response
+     * Handle error response
      * @param data
      */
     error: function(data) {
@@ -179,8 +181,24 @@ const MyForm = {
         this.resultContainer.textContent = data.reason;
     },
 
-    progress: function() {
+    /**
+     * Handle progress response
+     * @param data
+     */
+    progress: function(data) {
+        data.timeout = data.timeout ? data.timeout : 3000;
+
+
+        console.log(data);
         // progress
+    },
+
+    /**
+     * Reset result container state
+     */
+    resetResult: function() {
+        this.resultContainer.classList.remove('success', 'error', 'progress');
+        this.resultContainer.textContent = '';
     },
 
     /**
