@@ -168,6 +168,7 @@ const MyForm = {
     success: function(data) {
         data.text = 'Success';
 
+        this.resetResult();
         this.resultContainer.classList.add('success');
         this.resultContainer.textContent = data.text;
     },
@@ -177,6 +178,7 @@ const MyForm = {
      * @param data
      */
     error: function(data) {
+        this.resetResult();
         this.resultContainer.classList.add('error');
         this.resultContainer.textContent = data.reason;
     },
@@ -188,9 +190,13 @@ const MyForm = {
     progress: function(data) {
         data.timeout = data.timeout ? data.timeout : 3000;
 
+        this.resultContainer.classList.add('progress');
 
-        console.log(data);
-        // progress
+        setTimeout(() => {
+            const options = this.getFormSettings();
+
+            this.request(options);
+        }, data.timeout);
     },
 
     /**
@@ -199,6 +205,13 @@ const MyForm = {
     resetResult: function() {
         this.resultContainer.classList.remove('success', 'error', 'progress');
         this.resultContainer.textContent = '';
+    },
+
+    /**
+     * Reset form fields
+     */
+    resetForm: function() {
+        this.form.reset();
     },
 
     /**
