@@ -16,7 +16,7 @@ gulp.task('scripts', () => {
 
     return b.transform(babelify, {presets: ["es2015"]}).bundle()
         .on('error', errorHandler)
-        .pipe(source('main.js'))
+        .pipe(source('index.js'))
         .pipe(buffer())
         .pipe(sourcemaps.init({loadMaps: true}))
         // Add transformation tasks to the pipeline here.
