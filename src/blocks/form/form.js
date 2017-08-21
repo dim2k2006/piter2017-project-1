@@ -48,6 +48,13 @@ class Form {
             rules: this.rules,
             settings: this.settings
         });
+
+        return {
+            validate: this._validate,
+            getData: this._getData,
+            setData: this._setData,
+            submit: this._submit
+        };
     }
 
     /**
@@ -281,7 +288,7 @@ class Form {
  * @returns {Form}
  */
 const init = () => {
-    return new Form;
+    return new Form();
 };
 
 export default {init};
