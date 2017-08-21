@@ -11,6 +11,10 @@ gulp.task('watch', () => {
         gulp.start('styles');
     });
 
+    watch([`${settings.baseSrc}/js/*.js`], function(event, cb) {
+        gulp.start('eslint', 'scripts');
+    });
+
     watch([`${settings.baseSrc}/{blocks}/**/*.js`], function(event, cb) {
         gulp.start('eslint', 'scripts');
     });

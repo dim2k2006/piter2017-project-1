@@ -1,13 +1,18 @@
 {
     "extends": "eslint:recommended",
     "parserOptions": {
-        "ecmaVersion": 6
+        "ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        }
     },
     "env": {
         "browser": true
     },
     "globals": {
-        "FormValidation": true
+        "Modernizr": true,
+        "google": true
     },
     "rules": {
         "curly": "error",
@@ -37,7 +42,6 @@
         "no-multiple-empty-lines": ["error", { "max": 1}],
         "no-trailing-spaces": "error",
         "object-curly-spacing": ["error", "never"],
-        "object-property-newline": "error",
         "one-var": ["error", "never"],
         "require-jsdoc": ["error", {
             "require": {
