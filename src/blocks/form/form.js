@@ -21,6 +21,8 @@ class Form {
         this._resetResult = this._resetResult.bind(this);
         this._resetForm = this._resetForm.bind(this);
         this._getFormSettings = this._getFormSettings.bind(this);
+        this._resetErrors = this._resetErrors.bind(this);
+        this._setErrors = this._setErrors.bind(this);
 
         this.form = document.querySelector('#myForm');
         this.submitBtn = document.querySelector('#submitButton');
@@ -61,7 +63,7 @@ class Form {
      * Add events listeners
      */
     _setupListeners() {
-        this.submitBtn.addEventListener('click', (event) => {
+        this.submitBtn.addEventListener('click', event => {
             event.preventDefault();
 
             this._submit();
@@ -120,14 +122,7 @@ class Form {
      * Submit form
      */
     _submit() {
-        const errorInputs = this.form.querySelectorAll('.error');
-
-        if (errorInputs) {
-
-            errorInputs.forEach(input => input.classList.remove('error'));
-
-        }
-
+        this._resetErrors();
         const form = this._validate();
 
         if (form.isValid) {
@@ -142,15 +137,7 @@ class Form {
 
         } else {
 
-            form.errorFields.forEach(fieldName => {
-                const field = this.form.querySelector(`[name=${fieldName}]`);
-
-                if (field) {
-
-                    field.classList.add('error');
-
-                }
-            });
+            this._setErrors(form.errorFields);
 
         }
     }
@@ -280,6 +267,37 @@ class Form {
                 method: this.form.method ? this.form.method : 'get'
             }
         };
+    }
+
+    /**
+     * Reset error state for input
+     * @private
+     */
+    _resetErrors() {
+        const errorInputs = this.form.querySelectorAll('.error');
+
+        if (errorInputs) {
+
+            errorInputs.forEach(input => input.classList.remove('error'));
+
+        }
+    }
+
+    /**
+     * Set error state for input
+     * @param {Array} fieldNames
+     * @private
+     */
+    _setErrors(fieldNames) {
+        fieldNames.forEach(fieldName => {
+            const field = this.form.querySelector(`[name=${fieldName}]`);
+
+            if (field) {
+
+                field.classList.add('error');
+
+            }
+        });
     }
 }
 
