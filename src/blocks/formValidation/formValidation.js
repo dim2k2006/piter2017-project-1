@@ -99,7 +99,9 @@ class FormValidation {
     }
 
     /**
-     * _validate fields
+     * Validate fields
+     * @returns {Object} validationResult
+     * @private
      */
     _validate() {
         const validationResult = {
