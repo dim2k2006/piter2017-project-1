@@ -61,6 +61,7 @@ class Form {
 
     /**
      * Add events listeners
+     * @private
      */
     _setupListeners() {
         this.submitBtn.addEventListener('click', event => {
@@ -72,6 +73,8 @@ class Form {
 
     /**
      * Validate form
+     * @returns {Object}
+     * @private
      */
     _validate() {
         return this.formValidation.validate();
@@ -80,6 +83,7 @@ class Form {
     /**
      * Retrieve data from inputs
      * @returns {Object} data
+     * @private
      */
     _getData() {
         const inputs = this.form.querySelectorAll('input');
@@ -98,6 +102,7 @@ class Form {
     /**
      * Set data for inputs
      * @param {Object} data
+     * @private
      */
     _setData(data) {
         for (let inputName in data) {
@@ -120,6 +125,7 @@ class Form {
 
     /**
      * Submit form
+     * @private
      */
     _submit() {
         this._resetErrors();
@@ -145,6 +151,7 @@ class Form {
     /**
      * Send request to server
      * @param {Object} options
+     * @private
      */
     _request(options) {
         if (!options.url) {
@@ -196,7 +203,8 @@ class Form {
 
     /**
      * Handle success response
-     * @param data
+     * @param {Object} data
+     * @private
      */
     _success(data) {
         data.text = 'Success';
@@ -209,7 +217,8 @@ class Form {
 
     /**
      * Handle error response
-     * @param data
+     * @param {Object} data
+     * @private
      */
     _error(data) {
         this._resetResult();
@@ -220,7 +229,8 @@ class Form {
 
     /**
      * Handle progress response
-     * @param data
+     * @param {Object} data
+     * @private
      */
     _progress(data) {
         data.timeout = data.timeout ? data.timeout : 3000;
@@ -236,6 +246,7 @@ class Form {
 
     /**
      * Toggle loading state for form element
+     * @private
      */
     _toggleLoading() {
         this.form.classList.toggle('loading');
@@ -243,6 +254,7 @@ class Form {
 
     /**
      * Reset result container state
+     * @private
      */
     _resetResult() {
         this.resultContainer.classList.remove('success', 'error', 'progress');
@@ -251,6 +263,7 @@ class Form {
 
     /**
      * Reset form fields
+     * @private
      */
     _resetForm() {
         this.form.reset();
@@ -259,6 +272,7 @@ class Form {
     /**
      * Get form settings
      * @returns {Object}
+     * @private
      */
     _getFormSettings() {
         return {
