@@ -75,5 +75,8 @@
   },
   "vendorScripts": {
     "path": []
+  },
+  "dependencies": {
+    "tooltip.js": "^1.1.5"
   }
 }
