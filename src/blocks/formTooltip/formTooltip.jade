@@ -1,0 +1,8 @@
+mixin formTooltip(data)
+    - var formTooltipData = data ? data : {};
+
+    - formTooltipData.title = formTooltipData.title ? formTooltipData.title : 'Tooltip title';
+
+    +b('div').formTooltip
+        +e('div').content(data-title= formTooltipData.title)
+            +e('img')(src="images/ico-question.svg")

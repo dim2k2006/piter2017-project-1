@@ -1,3 +1,5 @@
+include ../formTooltip/formTooltip
+
 mixin formInput(data)
     - var inputData = data ? data : {};
 
@@ -8,6 +10,7 @@ mixin formInput(data)
     - inputData.value = inputData.value ? inputData.value : '';
     - inputData.placeholder = inputData.placeholder ? inputData.placeholder : '';
     - inputData.error = inputData.error ? inputData.error : false;
+    - inputData.tooltip = inputData.tooltip ? inputData.tooltip : '';
 
     +b('div').formInput(
         class= inputData.error ? 'formInput_state_error' : ''
@@ -25,3 +28,8 @@ mixin formInput(data)
                     value= inputData.value,
                     placeholder= inputData.placeholder
                 )
+
+                +e('div').tooltip
+                    +formTooltip({
+                        title: inputData.tooltip
+                    })
