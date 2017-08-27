@@ -17,12 +17,14 @@ class FormTooltip {
      * Init tooltips
      */
     init() {
-        const tooltips = Array.from(document.querySelectorAll('.formTooltip__content'));
+        const tooltips = document.querySelectorAll('.formTooltip__content');
 
-        tippy(tooltips, {
-            arrow: true,
-            trigger: 'click',
-            size: 'small'
+        tooltips.forEach(tooltip => {
+            tippy(tooltip, {
+                arrow: true,
+                trigger: 'click',
+                size: 'small'
+            });
         });
     }
 }
