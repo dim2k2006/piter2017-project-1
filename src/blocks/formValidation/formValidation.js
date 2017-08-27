@@ -55,7 +55,7 @@ class FormValidation {
      * @private
      */
     _fullName(value) {
-        return /^([\S]+)\s([\S]+)\s([\S]+)/.test(value);
+        return /^([\S]+)\s([\S]+)\s([\S]+)$/.test(value);
     }
 
     /**
