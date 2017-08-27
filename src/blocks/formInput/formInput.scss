@@ -25,6 +25,10 @@ $formInput: '.formInput';
         }
     }
 
+    input[type=text] {
+        padding-right: 53px;
+    }
+
     &__tooltip {
         position: absolute;
         display: block;
