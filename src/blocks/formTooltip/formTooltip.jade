@@ -4,5 +4,5 @@ mixin formTooltip(data)
     - formTooltipData.title = formTooltipData.title ? formTooltipData.title : 'Tooltip title';
 
     +b('div').formTooltip
-        +e('div').content(data-title= formTooltipData.title)
+        +e('div').content(title= formTooltipData.title)
             +e('img')(src="images/ico-question.svg")

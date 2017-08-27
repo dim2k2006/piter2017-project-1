@@ -15,21 +15,24 @@ mixin form
                             +formInput({
                                 name: 'fio',
                                 id: 'fio',
-                                label: 'ФИО'
+                                label: 'ФИО',
+                                tooltip: 'Ровно три слова'
                             })
 
                         +e('li').item
                             +formInput({
                                 name: 'email',
                                 id: 'email',
-                                label: 'Email'
+                                label: 'Email',
+                                tooltip: 'Формат email-адреса, в доменах ya.ru, yandex.ru, yandex.ua, yandex.by, yandex.kz, yandex.com'
                             })
 
                         +e('li').item
                             +formInput({
                                 name: 'phone',
                                 id: 'phone',
-                                label: 'Телефон'
+                                label: 'Телефон',
+                                tooltip: 'Номер телефона, например, +7(999)999-99-99. Сумма всех цифр телефона не должна превышать 30.'
                             })
 
                         +e('li').item

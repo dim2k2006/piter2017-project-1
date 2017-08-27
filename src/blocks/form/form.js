@@ -1,4 +1,5 @@
 import FormValidation from '../formValidation/formValidation';
+import FormTooltip from '../formTooltip/formTooltip';
 
 /**
  * Creates a new Form class
@@ -50,6 +51,7 @@ class Form {
             rules: this.rules,
             settings: this.settings
         });
+        this.formTooltip = new FormTooltip();
 
         return {
             validate: this._validate,

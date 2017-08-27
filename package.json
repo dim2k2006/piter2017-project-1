@@ -70,13 +70,14 @@
   },
   "vendorStyles": {
     "path": [
-      "./src/bower_components/normalize.css/normalize.css"
+      "./src/bower_components/normalize.css/normalize.css",
+      "./node_modules/tippy.js/dist/tippy.css"
     ]
   },
   "vendorScripts": {
     "path": []
   },
   "dependencies": {
-    "tooltip.js": "^1.1.5"
+    "tippy.js": "^1.2.0"
   }
 }

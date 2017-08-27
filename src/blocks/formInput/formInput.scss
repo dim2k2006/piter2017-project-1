@@ -12,15 +12,16 @@ $formInput: '.formInput';
             border-color: $color-shamrock;
         }
 
-        &:focus + #{$formInput}__tooltip {
+        &.error {
+            border-color: $color-carnation;
+        }
+
+        &:focus + #{$formInput}__tooltip,
+        &.error + #{$formInput}__tooltip {
             &:after {
                 height: 38px;
                 top: 0;
             }
-        }
-
-        &.error {
-            border-color: $color-carnation;
         }
     }
 
